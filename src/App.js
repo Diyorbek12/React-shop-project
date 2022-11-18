@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Shop from "./components/Shop";
 import { ToastContainer } from 'react-toastify';
+import { ContextProvider } from "./context";
 import './App.css';
 
 export default function App () {
@@ -10,7 +11,9 @@ export default function App () {
     <div className="App">
       <ToastContainer />
       <Header />
-      <Shop />
+      <ContextProvider>
+        <Shop />
+      </ContextProvider>
       <Footer />
     </div>
   );

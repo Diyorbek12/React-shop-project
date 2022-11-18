@@ -1,7 +1,9 @@
 import ItemList from "./ItemList";
+import { useContext } from 'react';
+import { shopContext } from '../context';
 
-export default function GoodsList(props) {
-    const { goods = [], addToCart } = props;
+export default function GoodsList() {
+    const { goods = [] } = useContext(shopContext);
 
     if (!goods.length) {
         console.log(goods);
@@ -11,7 +13,7 @@ export default function GoodsList(props) {
     return (
         <div className="goods">
             {goods.map(item => (
-                <ItemList key={item.id} {...item} addToCart={addToCart} />
+                <ItemList key={item.id} {...item} />
             ))}
         </div>
     );
