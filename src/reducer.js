@@ -14,7 +14,6 @@ export function reducer(state, {type, payload}) {
     } else {
       newOrder = state.order.map((orderItem, index) => {
         if (itemIndex === index) {
-            
           return {
             ...orderItem,
             quantity: orderItem.quantity + 1,
@@ -45,7 +44,7 @@ export function reducer(state, {type, payload}) {
       }
     })
   }
-            }
+}
         case 'INCREMENT_QUANTITY': {
             return {
                 ...state,
@@ -73,7 +72,6 @@ export function reducer(state, {type, payload}) {
                 goods: payload || [],
                 loading: false
             }
-
         default:
             return false
     }

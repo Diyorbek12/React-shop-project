@@ -7,7 +7,7 @@ const initialState = {
     goods: [],
     loading: true,
     order: [],
-    showCart: false,
+    showCart: false
 }
 
 export const ContextProvider = ({children}) => {
