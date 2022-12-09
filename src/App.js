@@ -4,17 +4,16 @@ import Footer from "./components/Footer";
 import Shop from "./components/Shop";
 import { ToastContainer } from 'react-toastify';
 import { ContextProvider } from "./context";
-import './App.css';
 
 export default function App () {
   return (
     <div className="App">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Header />
-      <ContextProvider>
+      {/* <ContextProvider>
         <Shop />
-      </ContextProvider>
-      <Footer />
+      </ContextProvider>*/}
+      <Footer /> 
     </div>
   );
 }
