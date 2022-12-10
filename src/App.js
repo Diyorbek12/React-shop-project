@@ -8,11 +8,11 @@ import { ContextProvider } from "./context";
 export default function App () {
   return (
     <div className="App">
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <Header />
-      {/* <ContextProvider>
+      {/* <ContextProvider> */}
         <Shop />
-      </ContextProvider>*/}
+      {/* </ContextProvider> */}
       <Footer /> 
     </div>
   );

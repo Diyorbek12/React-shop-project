@@ -16,6 +16,10 @@ nav {
   padding: 1.5rem 0;
 }
 
+.container {
+  width: 95%;
+}
+
 .goods {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -41,6 +45,47 @@ nav {
   border-radius: 10px;
 }
 
+.btn-buy {
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(247, 247, 2);
+  padding: 5px 20px;
+  color: #000;
+}
+
+.btn-buy:hover {
+  background-color: rgb(218, 218, 25);
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.sidenav {
+  width: 300px;
+  transform: translateX(0%);
+  left: 1000px;
+}
+
+.cart-quantity {
+  font-size: 14px;
+  font-weight: 600;
+  background-color: red;
+  border-radius: 50%;
+  padding: 3px 7px;
+}
+.unselectable, i {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.pad {
+  padding: 3px;
+}
+
 @media (min-width: 767px) {
   .cart {
     top: 5rem;
@@ -58,6 +103,13 @@ nav {
   max-width: 95%;
   box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .5);
   animation: show .5s ease-in-out;
+  z-index: 10;
+  border-radius: 20px ;
+}
+
+
+.red-text {
+  cursor: pointer;
 }
 
 .cart-close {
@@ -65,7 +117,8 @@ nav {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
-  color: #fff;
+  color: rgb(247, 4, 4);
+  font-weight: 700;
 }
 
 .cart-del {
@@ -85,15 +138,38 @@ nav {
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, .5);
-}
-
-.btnq {
-  position: relative;
-  bottom: 8px;
-  margin-left: 8px;
+  z-index: 5;
 }
 
 .btn {
   color: white;
   border-radius: 10px;
+}
+
+.btn-2 {
+  cursor: pointer;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col2 {
+  display: flex;
+  align-items: center;
+}
+
+.addRemove {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(15, 123, 247);
+  margin: 0 10px;
+  padding: 5px 5px;
+  border-radius: 25px;
+}
+
+.addRemove i {
+  margin: 0 5px;
 }

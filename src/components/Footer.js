@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="page-footer teal">
+    <footer className="page-footer blue">
     <div className="container">
       <div className="row">
         <div className="col l6 s12">
@@ -13,7 +13,7 @@ export default function Footer() {
     </div>
     <div className="footer-copyright">
       <div className="container">
-      © {} Copyright
+      © {new Date().getFullYear()} Copyright
       <a className="grey-text text-lighten-4 right" href="#!">Diyorbek</a>
       </div>
     </div>
