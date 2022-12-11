@@ -8,7 +8,7 @@ import GoodsList from './GoodsList';
 import Loader from './Loader';
 
 export default function Shop() {
-  const {goods, setGoods, loading, order, showCart } = useContext(ShopContext)
+  const { setGoods, loading, order, showCart } = useContext(ShopContext)
 
   useEffect(() => {
     fetch(API_URL, {
