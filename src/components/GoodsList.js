@@ -1,7 +1,7 @@
 import CartItem from "./CartItem";
 
 export default function GoodsList(props) {
-  const { goods = [], addToCart } = props;
+  const { goods = [] } = props;
   
   
     if (!goods.length) {
@@ -11,7 +11,7 @@ export default function GoodsList(props) {
     return (
         <div className="goods">
             {goods.map(item => (
-               <CartItem key={item.id} {...item} addToCart={addToCart} />
+               <CartItem key={item.id} {...item} />
             ))}
         </div>
     )

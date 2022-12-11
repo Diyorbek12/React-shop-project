@@ -10,9 +10,9 @@ export default function App () {
     <div className="App">
       <ToastContainer />
       <Header />
-      {/* <ContextProvider> */}
+      <ContextProvider>
         <Shop />
-      {/* </ContextProvider> */}
+      </ContextProvider>
       <Footer /> 
     </div>
   );

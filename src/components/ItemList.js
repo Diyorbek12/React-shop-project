@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 export default function ItemList(props) {
-    const {id, name, price, quantity, removeFromCart, increQuantity, decreQuantity} = props
+  const { removeFromCart, increQuantity, decreQuantity } = useContext(ShopContext)
+  const { id, name, price, quantity } = props
+  
   return (
     <li className="collection-item">
         <div className="col">
