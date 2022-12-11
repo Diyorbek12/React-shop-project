@@ -15,7 +15,7 @@ export default function CartItem(props) {
            <p>{description}</p>
         </div>
         <div className='card-action'>
-           <a href="#" onClick={() => addToCart({id, name, price})}><span className='btn-buy unselectable'>Buy</span></a>
+           <a href="#!" onClick={() => addToCart({id, name, price})}><span className='btn-buy unselectable'>Buy</span></a>
            <span className='right'>V-{price}</span>
         </div>
     </div>
