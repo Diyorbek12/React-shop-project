@@ -88,8 +88,18 @@ nav {
 
 @media (min-width: 767px) {
   .cart {
-    top: 5rem;
+    top: 1rem;
     bottom: unset;
+  }
+}
+
+@media (max-width: 470px) {
+  .btn-buy {
+    padding: 10px 25px;
+  }
+  .cart {
+    top: unset;
+    bottom: 7rem;
   }
 }
 

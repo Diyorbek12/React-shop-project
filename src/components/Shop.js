@@ -10,6 +10,8 @@ import Loader from './Loader';
 export default function Shop() {
   const { setGoods, loading, order, showCart } = useContext(ShopContext)
 
+
+
   useEffect(() => {
     fetch(API_URL, {
         headers: {
@@ -17,8 +19,8 @@ export default function Shop() {
         },
     })
     .then((response) => response.json())
-    .then((data) => {
-        setGoods(data.featured)
+    .then((data) => { 
+      setGoods(data.featured)
     });
   }, []);
 
