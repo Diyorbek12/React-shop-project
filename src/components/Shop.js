@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { ShopContext } from '../context';
 import { API_KEY, API_URL } from '../config';
 import Cart from './Cart';
 import CratList from './CratList';
@@ -7,70 +8,7 @@ import GoodsList from './GoodsList';
 import Loader from './Loader';
 
 export default function Shop() {
-  const [goods, setGoods] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [order, setOrder] = useState([]);
-  const [showCart, setShowCart] = useState(false);
-
-  const increQuantity = (itemID) => {
-    const newOrder = order.map(orderItem => {
-        if (itemID === orderItem.id) {
-            const newQuantity = orderItem.quantity + 1
-            return {
-                ...orderItem,
-                quantity: newQuantity
-            }
-        } else {
-            return orderItem
-        }
-    });
-    setOrder(newOrder)
-  } // y
-  const decreQuantity = (itemID) => {
-    const newOrder = order.map(orderItem => {
-        if (itemID === orderItem.id) {
-            const newQuantity = orderItem.quantity - 1
-            return {
-                ...orderItem,
-                quantity: orderItem.quantity >= 2 ? newQuantity : 1
-            }
-        } else {
-            return orderItem
-        }
-    })
-    setOrder(newOrder)
-  } // y
-  const removeFromCart = (itemID) => {
-    const newOrder = order.filter(item => item.id !== itemID)
-    setOrder(newOrder)
-  } // y
-  const handleShowCart = () => {
-    setShowCart(!showCart)
-    document.body.style = showCart ? 'overflow: auto' : 'overflow: hidden'
-  } // y
-  const addToCart = (item) => {
-    const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
-
-    if (itemIndex < 0) {
-        const newItem = {
-            ...item,
-            quantity: 1
-        }
-        setOrder([...order, newItem])
-    } else {
-        const newOrder = order.map((orderItem, index) => {
-            if (itemIndex === index) {
-                return {
-                    ...orderItem,
-                    quantity: orderItem.quantity + 1
-                }
-            } else {
-                return orderItem
-            }
-        })
-        setOrder(newOrder)
-    }
-  } // y
+  const {goods, setGoods, loading, order, showCart } = useContext(ShopContext)
 
   useEffect(() => {
     fetch(API_URL, {
@@ -80,21 +18,15 @@ export default function Shop() {
     })
     .then((response) => response.json())
     .then((data) => {
-        data.featured && setGoods(data.featured);
-        setLoading(false);
+        setGoods(data.featured)
     });
   }, []);
 
   return (
     <div className='container content'>
-        {showCart && <CratList order={order} 
-        handleShowCart={handleShowCart}
-        removeFromCart={removeFromCart}
-        increQuantity={increQuantity}
-        decreQuantity={decreQuantity} />}   
-        <Cart quantity={order.length} 
-        handleShowCart={handleShowCart} />
-      {loading ? <Loader /> : <GoodsList goods={goods} addToCart={addToCart} /> }
+        {showCart && <CratList />}   
+        <Cart quantity={order.length} />
+        {loading ? <Loader /> : <GoodsList /> }
     </div>
   )
 }

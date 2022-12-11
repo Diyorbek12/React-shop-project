@@ -4,12 +4,11 @@ export function reducer(state, {type, payload}) {
     switch (type) {
         case 'ADD_TO_CART': {
             const itemIndex = state.order.findIndex(orderItem => orderItem.id === payload.id)
-            
             let newOrder = null;
-
+                toast.success('item successfully added to cart', {toastId: payload.id})
             if (itemIndex < 0) {
                 const newItem = { ...payload, quantity: 1 }
-                newOrder = [...state.order, newItem]
+                newOrder = [...state.order, newItem] 
             } else {
                 newOrder = state.order.map((orderItem, index) => {
                     if (itemIndex === index) {
@@ -20,7 +19,6 @@ export function reducer(state, {type, payload}) {
                     } else { return orderItem }
                 })
             }
-            toast.success('item successfully added to cart')
             return {
                 ...state,
                 order: newOrder
@@ -69,6 +67,13 @@ export function reducer(state, {type, payload}) {
             return {
                 ...state,
                 showCart: !state.showCart
+            }
+        }
+        case 'SET_GOODS': {
+            return {
+                ...state,
+                goods: payload || [],
+                loading: false
             }
         }
 

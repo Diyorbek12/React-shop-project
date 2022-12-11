@@ -1,7 +1,9 @@
-import ItemList from "./ItemList"
+import { useContext } from "react";
+import { ShopContext } from "../context";
+import ItemList from "./ItemList";
 
-export default function CratList(props) {
-const {order, handleShowCart} = props 
+export default function CratList() {
+const {order = [], handleShowCart = Function.prototype} = useContext(ShopContext)
 
 const totalPrice = order.reduce((sum, el) => {
     return sum + el.price * el.quantity
@@ -14,10 +16,7 @@ const totalPrice = order.reduce((sum, el) => {
         Cart
       </li>
       {order.length ? order.map(item => {
-        return <ItemList key={item.id} {...item} 
-        removeFromCart={props.removeFromCart}
-        increQuantity={props.increQuantity}
-        decreQuantity={props.decreQuantity} />
+        return <ItemList key={item.id} {...item} />
       }) : <li>empty</li>}
       <li className="collection-item active light-blue">
         Total Price: <b>V</b>-{totalPrice}

@@ -1,7 +1,9 @@
 import CartItem from "./CartItem";
+import { useContext } from "react";
+import { ShopContext } from "../context";
 
-export default function GoodsList(props) {
-  const { goods = [] } = props;
+export default function GoodsList() {
+  const { goods = [] } = useContext(ShopContext);
   
   
     if (!goods.length) {
