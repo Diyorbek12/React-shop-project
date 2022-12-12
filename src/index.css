@@ -88,7 +88,7 @@ nav {
 
 @media (min-width: 767px) {
   .cart {
-    top: 1rem;
+    top: 5rem;
     bottom: unset;
   }
 }

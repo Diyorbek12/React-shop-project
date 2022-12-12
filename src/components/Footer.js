@@ -14,7 +14,7 @@ export default function Footer() {
     <div className="footer-copyright">
       <div className="container">
       © {new Date().getFullYear()} Copyright
-      <a className="grey-text text-lighten-4 right" href="#!">Diyorbek</a>
+      <a href="#!" className="grey-text text-lighten-4 right">Diyorbek</a>
       </div>
     </div>
   </footer>
